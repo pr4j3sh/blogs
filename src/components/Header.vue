@@ -4,12 +4,18 @@ import Button from "primevue/button";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" src="@/assets/logo.svg" width="48" height="48" />
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
+  <header class="flex items-center justify-between">
+    <div class="flex items-center gap-1">
+      <i class="pi pi-file"></i>
+      <RouterLink class="font-bold" to="/">r3sume</RouterLink>
+    </div>
+    <nav class="flex items-center gap-1">
+      <Button
+        class="py-1 text-sm font-semibold"
+        label="Log in"
+        severity="secondary"
+      />
+      <Button class="py-1 text-sm font-semibold" label="Create resume" />
     </nav>
-    <Button label="Click" />
   </header>
 </template>
