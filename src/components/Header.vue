@@ -1,5 +1,5 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink } from "vue-router";
 import Button from "primevue/button";
 </script>
 
@@ -10,12 +10,16 @@ import Button from "primevue/button";
       <RouterLink class="font-bold" to="/">r3sume</RouterLink>
     </div>
     <nav class="flex items-center gap-1">
-      <Button
-        class="py-1 text-sm font-semibold"
-        label="Log in"
-        severity="secondary"
-      />
-      <Button class="py-1 text-sm font-semibold" label="Create resume" />
+      <RouterLink to="/login">
+        <Button
+          class="py-1 text-sm font-semibold"
+          label="Log in"
+          severity="secondary"
+        />
+      </RouterLink>
+      <RouterLink to="/signup">
+        <Button class="py-1 text-sm font-semibold" label="Create resume" />
+      </RouterLink>
     </nav>
   </header>
 </template>
