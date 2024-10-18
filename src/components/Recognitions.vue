@@ -1,16 +1,14 @@
 <script setup></script>
 <template>
   <section class="flex flex-col gap-1">
-    <h2 class="font-bold text-xl">Experience</h2>
+    <h2 class="font-bold text-xl">Recognitions</h2>
     <hr />
     <div>
       <div class="flex items-center justify-between">
         <span class="flex gap-2">
-          <span class="font-bold">Your company</span>
+          <span class="font-semibold">achievement</span>
           <span>-</span>
-          <span>Your role</span>
-          <span>|</span>
-          <span>Type</span>
+          <span>description</span>
         </span>
         <span class="flex gap-2">
           <span>from</span>
@@ -18,10 +16,6 @@
           <span>to</span>
         </span>
       </div>
-      <ul>
-        <List text="what you did" />
-        <List text="skills, tech used" />
-      </ul>
     </div>
   </section>
 </template>
