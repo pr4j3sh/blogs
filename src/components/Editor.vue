@@ -5,8 +5,8 @@ import Resume from "../components/Resume.vue";
 <template>
   <div class="card w-full h-full">
     <Splitter class="h-[calc(100%-48px)]">
-      <SplitterPanel class="flex items-center justify-center">
-        Panel 1
+      <SplitterPanel class="">
+        <ResumeEditor />
       </SplitterPanel>
       <SplitterPanel class=""> <Resume /> </SplitterPanel>
     </Splitter>
