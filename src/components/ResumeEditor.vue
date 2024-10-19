@@ -1,109 +1,50 @@
-<script setup>
-import { ref } from "vue";
-
-const selectedJobType = ref();
-const jobTypes = ref(["Fulltime", "Intern"]);
-</script>
+<script setup></script>
 
 <template>
-  <div class="p-2">
+  <div class="p-2 flex flex-col gap-2">
     <section>
       <h2 class="font-bold text-xl">Basic Information</h2>
-      <form class="flex flex-col gap-2">
-        <InputGroup>
-          <InputGroupAddon>
-            <i class="pi pi-user"></i>
-          </InputGroupAddon>
-          <InputText
-            type="text"
-            v-model="name"
-            placeholder="Your name"
-            size="small"
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon>
-            <i class="pi pi-globe"></i>
-          </InputGroupAddon>
-          <InputText
-            type="text"
-            v-model="website"
-            placeholder="Your website"
-            size="small"
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon>
-            <i class="pi pi-github"></i>
-          </InputGroupAddon>
-          <InputText
-            type="text"
-            v-model="github"
-            placeholder="Your github url"
-            size="small"
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon>
-            <i class="pi pi-linkedin"></i>
-          </InputGroupAddon>
-          <InputText
-            type="text"
-            v-model="linkedin"
-            placeholder="Your linkedin url"
-            size="small"
-          />
-        </InputGroup>
-        <InputGroup>
-          <InputGroupAddon>
-            <i class="pi pi-envelope"></i>
-          </InputGroupAddon>
-          <InputText
-            type="email"
-            v-model="email"
-            placeholder="Your email id"
-            size="small"
-          />
-        </InputGroup>
-      </form>
+      <BasicForm />
     </section>
-    <section>
+    <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Experience</h2>
-      <form class="flex flex-col gap-2">
-        <InputText
-          type="text"
-          v-model="name"
-          placeholder="Your company"
-          size="small"
-        />
-        <InputText
-          type="text"
-          v-model="name"
-          placeholder="Your role"
-          size="small"
-        />
-        <Select
-          v-model="selectedJobType"
-          :options="jobTypes"
-          placeholder="Select job type"
-          class="text-sm py-0"
-        />
-        <Textarea
-          v-model="description"
-          rows="5"
-          placeholder="Describe what you did..."
-          class="text-sm"
-        />
-        <Textarea
-          v-model="skills"
-          rows="5"
-          placeholder="Describe what you skills/technology you worked with..."
-          class="text-sm"
-        />
-        <div>
-          <Button class="py-1 text-sm" severity="secondary">Add</Button>
-        </div>
-      </form>
+      <Accordion>
+        <ExperienceUpdateForm value="0" company="Company 1" />
+        <ExperienceUpdateForm value="1" company="Company 2" />
+      </Accordion>
+      <ExperienceForm />
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Skills</h2>
+      <SkillsForm />
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Projects</h2>
+      <Accordion>
+        <ProjectsUpdateForm value="0" project="Project 1" />
+      </Accordion>
+      <ProjectsForm />
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Education</h2>
+      <Accordion>
+        <EducationUpdateForm value="0" title="College 1" />
+      </Accordion>
+      <EducationForm />
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Certifications</h2>
+      <Accordion>
+        <CertificationsUpdateForm value="0" title="Certifications 1" />
+      </Accordion>
+      <CertificationsForm />
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl">Recognitions</h2>
+      <Accordion>
+        <RecognitionsUpdateForm value="0" recognition="Recognition 1" />
+      </Accordion>
+      <RecognitionsForm />
     </section>
   </div>
 </template>
