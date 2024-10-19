@@ -1,17 +1,17 @@
 <script setup>
 const props = defineProps({
   value: String,
-  recognition: String,
+  title: String,
 });
 </script>
 <template>
   <AccordionPanel :value="value" class="py-0">
-    <AccordionHeader class="py-2">{{ recognition }}</AccordionHeader>
+    <AccordionHeader class="py-2">{{ title }}</AccordionHeader>
     <AccordionContent class="py-0">
       <form class="flex flex-col gap-2">
         <InputText
           type="text"
-          v-model="title"
+          v-model="reconition"
           placeholder="Recognition title"
           size="small"
         />

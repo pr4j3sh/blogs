@@ -1,4 +1,15 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  modelValue: Object,
+});
+const emit = defineEmits(["update:modelValue"]);
+
+const localBasic = ref({ ...props.modelValue });
+
+watch(localBasic, (newVal) => {
+  emit("update:modelValue", newVal);
+});
+</script>
 <template>
   <form class="flex flex-col gap-2">
     <div class="flex gap-2">
@@ -8,7 +19,7 @@
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="name"
+          v-model="localBasic.name"
           placeholder="Your name"
           size="small"
         />
@@ -19,7 +30,7 @@
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="website"
+          v-model="localBasic.website"
           placeholder="Your website"
           size="small"
         />
@@ -32,7 +43,7 @@
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="github"
+          v-model="localBasic.github"
           placeholder="Your github url"
           size="small"
         />
@@ -43,7 +54,7 @@
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="linkedin"
+          v-model="localBasic.linkedin"
           placeholder="Your linkedin url"
           size="small"
         />
@@ -56,7 +67,7 @@
         </InputGroupAddon>
         <InputText
           type="email"
-          v-model="email"
+          v-model="localBasic.email"
           placeholder="Your email id"
           size="small"
         />
@@ -66,8 +77,8 @@
           <i class="pi pi-phone"></i>
         </InputGroupAddon>
         <InputText
-          type="tel"
-          v-model="phone"
+          type="text"
+          v-model="localBasic.phone"
           placeholder="Your phone number"
           size="small"
         />

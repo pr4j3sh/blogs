@@ -1,18 +1,31 @@
-<script setup></script>
+<script setup>
+const props = defineProps({
+  modelValue: Object,
+});
+
+const emit = defineEmits(["update:modelValue"]);
+
+function updateBasic(newBasic) {
+  emit("update:modelValue", { ...props.modelValue, basic: newBasic });
+}
+function updateExperience(newExperience) {
+  emit("update:modelValue", { ...props.modelValue, experience: newExperience });
+}
+</script>
 
 <template>
   <div class="p-2 flex flex-col gap-2">
     <section>
       <h2 class="font-bold text-xl">Basic Information</h2>
-      <BasicForm />
+      <BasicForm v-model:basic="resumeData?.basic" />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Experience</h2>
       <Accordion>
-        <ExperienceUpdateForm value="0" company="Company 1" />
-        <ExperienceUpdateForm value="1" company="Company 2" />
+        <ExperienceUpdateForm value="0" title="Company 1" />
+        <ExperienceUpdateForm value="1" title="Company 2" />
       </Accordion>
-      <ExperienceForm />
+      <ExperienceForm v-model:experience="resumeData?.experience" />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Skills</h2>
@@ -21,7 +34,7 @@
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Projects</h2>
       <Accordion>
-        <ProjectsUpdateForm value="0" project="Project 1" />
+        <ProjectsUpdateForm value="0" title="Project 1" />
       </Accordion>
       <ProjectsForm />
     </section>
@@ -42,7 +55,7 @@
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Recognitions</h2>
       <Accordion>
-        <RecognitionsUpdateForm value="0" recognition="Recognition 1" />
+        <RecognitionsUpdateForm value="0" title="Recognition 1" />
       </Accordion>
       <RecognitionsForm />
     </section>
