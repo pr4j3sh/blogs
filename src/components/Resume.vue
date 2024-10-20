@@ -6,7 +6,7 @@ import { store } from "../lib/store.js";
     <header class="flex flex-col items-center gap-1">
       <h1 class="font-bold text-2xl">{{ store.basic.name }}</h1>
       <ul class="flex gap-x-4">
-        <Link icon="pi pi-globe" link="store.basic.website" text="website" />
+        <Link icon="pi pi-globe" :link="store.basic.website" text="website" />
         <Link icon="pi pi-github" link="#" text="github" />
         <Link icon="pi pi-linkedin" link="#" text="linkedin" />
         <Link icon="pi pi-envelope" link="#" text="email@example.com" />

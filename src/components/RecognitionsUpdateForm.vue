@@ -11,7 +11,7 @@ const props = defineProps({
       <form class="flex flex-col gap-2">
         <InputText
           type="text"
-          v-model="reconition"
+          v-model="recognition"
           placeholder="Recognition title"
           size="small"
         />

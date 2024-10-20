@@ -1,32 +1,46 @@
 <script setup>
 import { ref } from "vue";
+import { store } from "../lib/store.js";
 
-const selectedJobType = ref();
-const jobTypes = ref(["Fulltime", "Intern"]);
+const types = ref(["Fulltime", "Intern"]);
+
+const form = ref({
+  company: "",
+  role: "",
+  type: "",
+  from: "",
+  to: "",
+  description: "",
+  tech: "",
+});
+
+function submit() {
+  store.experience.push(form.value);
+}
 </script>
 <template>
-  <form class="flex flex-col gap-2">
+  <form class="flex flex-col gap-2" @submit.prevent="submit">
     <InputText
       type="text"
-      v-model="name"
+      v-model="form.company"
       placeholder="Your company"
       size="small"
     />
     <InputText
       type="text"
-      v-model="name"
+      v-model="form.role"
       placeholder="Your role"
       size="small"
     />
     <Select
-      v-model="selectedJobType"
-      :options="jobTypes"
+      v-model="form.type"
+      :options="types"
       placeholder="Select job type"
       class="text-sm py-0"
     />
     <div class="flex gap-2">
       <DatePicker
-        v-model="icondisplay"
+        v-model="form.from"
         placeholder="from"
         showIcon
         fluid
@@ -34,7 +48,7 @@ const jobTypes = ref(["Fulltime", "Intern"]);
         class="text-sm py-0 w-1/2"
       />
       <DatePicker
-        v-model="icondisplay"
+        v-model="form.to"
         placeholder="to"
         showIcon
         fluid
@@ -43,19 +57,21 @@ const jobTypes = ref(["Fulltime", "Intern"]);
       />
     </div>
     <Textarea
-      v-model="description"
+      v-model="form.description"
       rows="5"
       placeholder="Describe what you did..."
       class="text-sm"
     />
     <Textarea
-      v-model="skills"
+      v-model="form.tech"
       rows="5"
       placeholder="Describe what you skills/technology you worked with..."
       class="text-sm"
     />
     <div>
-      <Button class="py-1 text-sm" severity="secondary">Add</Button>
+      <Button class="py-1 text-sm" severity="secondary" type="submit"
+        >Add</Button
+      >
     </div>
   </form>
 </template>
