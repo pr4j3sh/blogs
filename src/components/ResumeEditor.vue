@@ -1,23 +1,10 @@
-<script setup>
-const props = defineProps({
-  modelValue: Object,
-});
-
-const emit = defineEmits(["update:modelValue"]);
-
-function updateBasic(newBasic) {
-  emit("update:modelValue", { ...props.modelValue, basic: newBasic });
-}
-function updateExperience(newExperience) {
-  emit("update:modelValue", { ...props.modelValue, experience: newExperience });
-}
-</script>
+<script setup></script>
 
 <template>
   <div class="p-2 flex flex-col gap-2">
     <section>
       <h2 class="font-bold text-xl">Basic Information</h2>
-      <BasicForm v-model:basic="resumeData?.basic" />
+      <BasicForm />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Experience</h2>
@@ -25,7 +12,7 @@ function updateExperience(newExperience) {
         <ExperienceUpdateForm value="0" title="Company 1" />
         <ExperienceUpdateForm value="1" title="Company 2" />
       </Accordion>
-      <ExperienceForm v-model:experience="resumeData?.experience" />
+      <ExperienceForm />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Skills</h2>

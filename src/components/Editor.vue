@@ -1,34 +1,13 @@
-<script setup>
-import { ref } from "vue";
-const resumeData = ref({
-  basic: {
-    name: "",
-    website: "",
-    github: "",
-    linkedin: "",
-    email: "",
-    phone: "",
-  },
-  experience: {
-    company: "",
-    role: "",
-    type: "",
-    from: "",
-    to: "",
-    description: "",
-    tech: "",
-  },
-});
-</script>
+<script setup></script>
 
 <template>
   <div class="card w-full h-full">
     <Splitter class="h-[calc(100%-48px)]">
       <SplitterPanel class="overflow-y-auto">
-        <ResumeEditor v-model:resumeData="resumeData" />
+        <ResumeEditor />
       </SplitterPanel>
       <SplitterPanel class="overflow-y-auto">
-        <Resume :resumeData="resumeData" />
+        <Resume />
       </SplitterPanel>
     </Splitter>
     <div class="flex justify-end gap-2 p-2 border-l-2 border-l-zinc-100">

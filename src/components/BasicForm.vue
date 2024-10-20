@@ -1,17 +1,23 @@
 <script setup>
-const props = defineProps({
-  modelValue: Object,
-});
-const emit = defineEmits(["update:modelValue"]);
+import { ref } from "vue";
+import { store } from "../lib/store.js";
 
-const localBasic = ref({ ...props.modelValue });
-
-watch(localBasic, (newVal) => {
-  emit("update:modelValue", newVal);
+const form = ref({
+  name: "",
+  website: "",
+  github: "",
+  linkedin: "",
+  email: "",
+  phone: "",
 });
+
+function submit() {
+  store.basic = form.value;
+}
 </script>
+
 <template>
-  <form class="flex flex-col gap-2">
+  <form class="flex flex-col gap-2" @submit.prevent="submit">
     <div class="flex gap-2">
       <InputGroup>
         <InputGroupAddon>
@@ -19,7 +25,7 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="localBasic.name"
+          v-model="form.name"
           placeholder="Your name"
           size="small"
         />
@@ -30,7 +36,7 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="localBasic.website"
+          v-model="form.website"
           placeholder="Your website"
           size="small"
         />
@@ -43,7 +49,7 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="localBasic.github"
+          v-model="form.github"
           placeholder="Your github url"
           size="small"
         />
@@ -54,7 +60,7 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="localBasic.linkedin"
+          v-model="form.linkedin"
           placeholder="Your linkedin url"
           size="small"
         />
@@ -67,7 +73,7 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="email"
-          v-model="localBasic.email"
+          v-model="form.email"
           placeholder="Your email id"
           size="small"
         />
@@ -78,11 +84,16 @@ watch(localBasic, (newVal) => {
         </InputGroupAddon>
         <InputText
           type="text"
-          v-model="localBasic.phone"
+          v-model="form.phone"
           placeholder="Your phone number"
           size="small"
         />
       </InputGroup>
+    </div>
+    <div>
+      <Button class="py-1 text-sm" severity="secondary" type="submit"
+        >Save</Button
+      >
     </div>
   </form>
 </template>
