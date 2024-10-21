@@ -1,10 +1,13 @@
 <script setup>
 import { ref } from "vue";
 import { store } from "../lib/store.js";
+import { v4 as uuid } from "uuid";
+import cloneDeep from "lodash/cloneDeep";
 
 const types = ref(["Fulltime", "Intern"]);
 
 const form = ref({
+  id: uuid(),
   company: "",
   role: "",
   type: "",
@@ -15,7 +18,8 @@ const form = ref({
 });
 
 function submit() {
-  store.experience.push(form.value);
+  const data = cloneDeep(form.value);
+  store.experience.push(data);
 }
 </script>
 <template>

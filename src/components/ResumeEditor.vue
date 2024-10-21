@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { store } from "../lib/store.js";
+</script>
 
 <template>
   <div class="p-2 flex flex-col gap-2">
@@ -8,9 +10,12 @@
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Experience</h2>
-      <Accordion>
-        <ExperienceUpdateForm value="0" title="Company 1" />
-        <ExperienceUpdateForm value="1" title="Company 2" />
+      <Accordion v-for="item in store.experience">
+        <ExperienceUpdateForm
+          :value="item.id"
+          :title="item.company"
+          :item="item"
+        />
       </Accordion>
       <ExperienceForm />
     </section>

@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import { store } from "../lib/store.js";
+import cloneDeep from "lodash/cloneDeep";
 
 const form = ref({
   name: "",
@@ -12,7 +13,8 @@ const form = ref({
 });
 
 function submit() {
-  store.basic = form.value;
+  const data = cloneDeep(form.value);
+  store.basic = data;
 }
 </script>
 
