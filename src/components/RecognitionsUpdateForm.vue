@@ -9,8 +9,6 @@ const props = defineProps({
   item: Object,
 });
 
-const types = ref(["Fulltime", "Intern"]);
-
 const form = ref({
   id: props.item.id,
   name: props.item.name,
@@ -26,6 +24,12 @@ function submit() {
     exp.id === data.id ? { ...exp, ...data, id: exp.id } : exp,
   );
 }
+
+function handleDelete() {
+  store.recognitions = store.recognitions.filter(
+    (exp) => exp.id !== props.item.id,
+  );
+}
 </script>
 <template>
   <AccordionPanel :value="value" class="py-0">
@@ -33,8 +37,8 @@ function submit() {
     <AccordionContent class="py-0">
       <form class="flex flex-col gap-2" @submit.prevent="submit">
         <InputText
-          type="form.name"
-          v-model="recognition"
+          type="text"
+          v-model="form.name"
           placeholder="Recognition title"
           size="small"
         />
@@ -62,9 +66,12 @@ function submit() {
           placeholder="Describe what you did..."
           class="text-sm"
         />
-        <div>
+        <div class="flex items-center gap-2">
           <Button class="py-1 text-sm" severity="secondary" type="submit"
             >Update</Button
+          >
+          <Button class="py-1 text-sm" severity="danger" @click="handleDelete"
+            >Delete</Button
           >
         </div>
       </form>

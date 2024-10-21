@@ -29,6 +29,10 @@ function submit() {
     exp.id === data.id ? { ...exp, ...data, id: exp.id } : exp,
   );
 }
+
+function handleDelete() {
+  store.experience = store.experience.filter((exp) => exp.id !== props.item.id);
+}
 </script>
 <template>
   <AccordionPanel :value="value" class="py-0">
@@ -83,9 +87,12 @@ function submit() {
           placeholder="Describe what you skills/technology you worked with..."
           class="text-sm"
         />
-        <div>
+        <div class="flex items-center gap-2">
           <Button class="py-1 text-sm" severity="secondary" type="submit"
             >Update</Button
+          >
+          <Button class="py-1 text-sm" severity="danger" @click="handleDelete"
+            >Delete</Button
           >
         </div>
       </form>

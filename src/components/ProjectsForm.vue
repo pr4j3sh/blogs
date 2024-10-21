@@ -5,7 +5,6 @@ import { v4 as uuid } from "uuid";
 import cloneDeep from "lodash/cloneDeep";
 
 const form = ref({
-  id: uuid(),
   title: "",
   url: "",
   from: "",
@@ -15,7 +14,7 @@ const form = ref({
 });
 
 function submit() {
-  const data = cloneDeep(form.value);
+  const data = { ...cloneDeep(form.value), id: uuid() };
   store.projects.push(data);
 }
 </script>

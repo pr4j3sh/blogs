@@ -10,7 +10,7 @@ export const store = reactive({
     phone: "",
   },
   experience: [],
-  sills: {
+  skills: {
     languages: "",
     libraries: "",
     tools: "",

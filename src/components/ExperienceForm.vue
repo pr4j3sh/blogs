@@ -7,7 +7,6 @@ import cloneDeep from "lodash/cloneDeep";
 const types = ref(["Fulltime", "Intern"]);
 
 const form = ref({
-  id: uuid(),
   company: "",
   role: "",
   type: "",
@@ -18,7 +17,7 @@ const form = ref({
 });
 
 function submit() {
-  const data = cloneDeep(form.value);
+  const data = { ...cloneDeep(form.value), id: uuid() };
   store.experience.push(data);
 }
 </script>
