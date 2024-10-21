@@ -1,15 +1,33 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+import { store } from "../lib/store.js";
+import { v4 as uuid } from "uuid";
+import cloneDeep from "lodash/cloneDeep";
+
+const form = ref({
+  id: uuid(),
+  name: "",
+  from: "",
+  to: "",
+  description: "",
+});
+
+function submit() {
+  const data = cloneDeep(form.value);
+  store.recognitons.push(data);
+}
+</script>
 <template>
-  <form class="flex flex-col gap-2">
+  <form class="flex flex-col gap-2" @submit.prevent="submit">
     <InputText
       type="text"
-      v-model="title"
+      v-model="form.name"
       placeholder="Recognition title"
       size="small"
     />
     <div class="flex gap-2">
       <DatePicker
-        v-model="icondisplay"
+        v-model="form.from"
         placeholder="from"
         showIcon
         fluid
@@ -17,7 +35,7 @@
         class="text-sm py-0 w-1/2"
       />
       <DatePicker
-        v-model="icondisplay"
+        v-model="form.to"
         placeholder="to"
         showIcon
         fluid
@@ -26,13 +44,15 @@
       />
     </div>
     <Textarea
-      v-model="description"
+      v-model="form.description"
       rows="5"
       placeholder="Describe what you did..."
       class="text-sm"
     />
     <div>
-      <Button class="py-1 text-sm" severity="secondary">Add</Button>
+      <Button class="py-1 text-sm" severity="secondary" type="submit"
+        >Add</Button
+      >
     </div>
   </form>
 </template>

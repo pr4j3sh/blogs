@@ -25,29 +25,41 @@ import { store } from "../lib/store.js";
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Projects</h2>
-      <Accordion>
-        <ProjectsUpdateForm value="0" title="Project 1" />
+      <Accordion v-for="item in store.projects">
+        <ProjectsUpdateForm :value="item.id" :title="item.title" :item="item" />
       </Accordion>
       <ProjectsForm />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Education</h2>
-      <Accordion>
-        <EducationUpdateForm value="0" title="College 1" />
+      <Accordion v-for="item in store.education">
+        <EducationUpdateForm
+          :value="item.id"
+          :title="item.degree"
+          :item="item"
+        />
       </Accordion>
       <EducationForm />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Certifications</h2>
-      <Accordion>
-        <CertificationsUpdateForm value="0" title="Certifications 1" />
+      <Accordion v-for="item in store.certifications">
+        <CertificationsUpdateForm
+          :value="item.id"
+          :title="item.name"
+          :item="item"
+        />
       </Accordion>
       <CertificationsForm />
     </section>
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Recognitions</h2>
-      <Accordion>
-        <RecognitionsUpdateForm value="0" title="Recognition 1" />
+      <Accordion v-for="item in store.recognitions">
+        <RecognitionsUpdateForm
+          :value="item.id"
+          :title="item.name"
+          :item="item"
+        />
       </Accordion>
       <RecognitionsForm />
     </section>

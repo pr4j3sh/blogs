@@ -28,8 +28,6 @@ function submit() {
   store.experience = store.experience.map((exp) =>
     exp.id === data.id ? { ...exp, ...data, id: exp.id } : exp,
   );
-
-  // console.log(store.experience);
 }
 </script>
 <template>
