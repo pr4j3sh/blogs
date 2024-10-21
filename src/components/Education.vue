@@ -6,20 +6,19 @@ function formatDate(s) {
 }
 </script>
 <template>
-  <section class="flex flex-col gap-1">
+  <section class="flex flex-col">
     <h2 class="font-bold text-xl">Education</h2>
-    <hr />
+    <Divider class="mt-3 mb-1" />
     <div v-for="item in store.education">
-      <div class="flex items-center justify-between">
-        <span class="flex gap-2">
-          <span class="font-semibold">{{ item.degree }}</span>
-          <span>-</span>
-          <span>{{ item.college }}</span>
-          <span v-if="item.grades">|</span>
-          <span>{{ item.grades }}</span>
-        </span>
+      <div class="flex items-center justify-between gap-2">
+        <span class="font-semibold">{{ item.degree }}</span>
         <Duration :from="item.from" :to="item.to" />
       </div>
+      <span class="flex items-center gap-2">
+        <span>{{ item.college }}</span>
+        <span v-if="item.grades">|</span>
+        <span class="font-semibold whitespace-nowrap">{{ item.grades }}</span>
+      </span>
     </div>
   </section>
 </template>

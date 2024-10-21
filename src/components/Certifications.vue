@@ -6,17 +6,15 @@ function formatDate(s) {
 }
 </script>
 <template>
-  <section class="flex flex-col gap-1">
+  <section class="flex flex-col">
     <h2 class="font-bold text-xl">Certifications</h2>
-    <hr />
+    <Divider class="mt-3 mb-1" />
     <div v-for="item in store.certifications">
-      <div class="flex items-center justify-between">
+      <div class="flex items-center justify-between gap-2">
         <span class="flex gap-2">
-          <span class="font-semibold">{{ item.name }}</span>
+          <a :href="item.url" class="font-semibold">{{ item.name }}</a>
           <span vi-if="item.authority">-</span>
           <span>{{ item.authority }}</span>
-          <span v-if="item.url">|</span>
-          <a :href="item.url">View</a>
         </span>
         <Duration :from="item.from" :to="item.to" />
       </div>

@@ -4,10 +4,11 @@ import { store } from "../lib/store.js";
 
 <template>
   <div class="p-2 flex flex-col gap-2">
-    <section>
+    <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Basic Information</h2>
       <BasicForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Experience</h2>
       <Accordion v-for="item in store.experience">
@@ -19,10 +20,12 @@ import { store } from "../lib/store.js";
       </Accordion>
       <ExperienceForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Skills</h2>
       <SkillsForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Projects</h2>
       <Accordion v-for="item in store.projects">
@@ -30,6 +33,7 @@ import { store } from "../lib/store.js";
       </Accordion>
       <ProjectsForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Education</h2>
       <Accordion v-for="item in store.education">
@@ -41,6 +45,7 @@ import { store } from "../lib/store.js";
       </Accordion>
       <EducationForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Certifications</h2>
       <Accordion v-for="item in store.certifications">
@@ -52,6 +57,7 @@ import { store } from "../lib/store.js";
       </Accordion>
       <CertificationsForm />
     </section>
+    <Divider />
     <section class="flex flex-col gap-2">
       <h2 class="font-bold text-xl">Recognitions</h2>
       <Accordion v-for="item in store.recognitions">

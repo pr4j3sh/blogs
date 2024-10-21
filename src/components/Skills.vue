@@ -2,31 +2,22 @@
 import { store } from "../lib/store.js";
 </script>
 <template>
-  <section class="flex flex-col gap-1">
+  <section class="flex flex-col">
     <h2 class="font-bold text-xl">Skills</h2>
-    <hr />
+    <Divider class="mt-3 mb-1" />
     <div>
-      <div class="flex items-center justify-between">
-        <span v-if="store.skills.languages" class="flex gap-2">
-          <span class="font-semibold">Languages/Technology</span>
-          <span>-</span>
-          <span>{{ store.skills.languages }}</span>
-        </span>
-      </div>
-      <div class="flex items-center justify-between">
-        <span v-if="store.skills.libraries" class="flex gap-2">
-          <span class="font-semibold">Libraries/Frameworks</span>
-          <span>-</span>
-          <span>{{ store.skills.libraries }}</span>
-        </span>
-      </div>
-      <div class="flex items-center justify-between">
-        <span v-if="store.skills.tools" class="flex gap-2">
-          <span class="font-semibold">Tools</span>
-          <span>-</span>
-          <span>{{ store.skills.tools }}</span>
-        </span>
-      </div>
+      <p v-if="store.skills.languages">
+        <span class="font-semibold">Languages/Technology</span> -
+        {{ store.skills.languages }}
+      </p>
+      <p v-if="store.skills.libraries">
+        <span class="font-semibold">Libraries/Frameworks</span> -
+        {{ store.skills.libraries }}
+      </p>
+      <p v-if="store.skills.languages">
+        <span class="font-semibold">Tools</span> -
+        {{ store.skills.tools }}
+      </p>
     </div>
   </section>
 </template>

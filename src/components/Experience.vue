@@ -6,9 +6,9 @@ function formatDate(s) {
 }
 </script>
 <template>
-  <section class="flex flex-col gap-1">
+  <section class="flex flex-col">
     <h2 class="font-bold text-xl">Experience</h2>
-    <hr />
+    <Divider class="mt-3 mb-1" />
     <div v-for="item in store.experience">
       <div class="flex items-center justify-between">
         <span class="flex gap-2">

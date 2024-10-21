@@ -43,7 +43,7 @@ const getUsername = (url) => {
         <Link
           v-if="store.basic.email"
           icon="pi pi-envelope"
-          :link="store.basic.email"
+          :link="`mailto:${store.basic.email}`"
           :text="store.basic.email"
         />
         <Link
