@@ -18,7 +18,7 @@ const getUsername = (url) => {
 };
 </script>
 <template>
-  <div class="p-2 flex flex-col gap-2">
+  <div class="p-2 flex flex-col gap-1">
     <header class="flex flex-col items-center gap-1">
       <h1 class="font-bold text-2xl">{{ store.basic.name }}</h1>
       <ul class="flex gap-x-4">
@@ -49,12 +49,12 @@ const getUsername = (url) => {
         <Link
           v-if="store.basic.phone"
           icon="pi pi-phone"
-          :link="store.basic.phone"
+          :link="`tel:${store.basic.phone}`"
           :text="store.basic.phone"
         />
       </ul>
     </header>
-    <main class="flex flex-col gap-1.5">
+    <main class="flex flex-col gap-1">
       <Experience />
       <Skills />
       <Projects />

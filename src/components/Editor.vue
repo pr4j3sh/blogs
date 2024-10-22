@@ -19,7 +19,7 @@ function download() {
       </SplitterPanel>
       <SplitterPanel class="overflow-y-auto">
         <div id="printable">
-          <Resume />
+          <Resume class="text-sm" />
         </div>
       </SplitterPanel>
     </Splitter>

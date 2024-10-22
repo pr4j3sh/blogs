@@ -14,7 +14,7 @@ import { store } from "../lib/store.js";
         <span class="font-semibold">Libraries/Frameworks</span> -
         {{ store.skills.libraries }}
       </p>
-      <p v-if="store.skills.languages">
+      <p v-if="store.skills.tools">
         <span class="font-semibold">Tools</span> -
         {{ store.skills.tools }}
       </p>
