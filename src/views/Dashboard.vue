@@ -5,7 +5,6 @@ import Editor from "../components/Editor.vue";
 <template>
   <div class="flex items-center h-screen w-full">
     <SideMenu />
-    <p>nothing here</p>
-    <!--  <Editor /> -->
+    <Editor />
   </div>
 </template>
