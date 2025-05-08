@@ -34,7 +34,7 @@ The name! Yea, it has to be in a specific format.
 YYYY-MM-DD_blog-title.md
 ```
 
-> date and title separated by an underscore, the data and title can use hyphens in between words.
+> date and title separated by an underscore, the date and title can use hyphens in between words.
 
 This utility function is defined in `src/lib/utils.js`, currently for fetching blogs. But you can customize the path to use any other directory, fetching your projects, works, experiments, etc.
 
