@@ -8,7 +8,7 @@ So, here we are. Introducing **blogs** - a place for me to share my work.
 
 ##### Early Encounters
 
-I've been in the world of software development since 2017 (it's a long story, will tell you some other day) and I have used several platforms for blogging. Started off with [Medium](https://medium.com/), it caters to a wide range of audiences, I wanted something specific for developers. Well, [dev.to](https://dev.to/) was a great choice, wrote loads of articles there, got recognition on [X](https://x.com/pr4j3sh)(formerly Twitter) and by that time I also discovered [Hashnode](https://hashnode.com/), but the idea of building a platform on my own was always at the back of my mind.
+I've been in the world of software development since 2017 (it's a long story, will tell you some other day) and I have used several platforms for blogging. Started off with [Medium](https://medium.com/), it caters to a wide range of audiences, I wanted something specific for developers. Well, [dev.to](https://dev.to/) was a great choice, wrote loads of articles there, got recognition on [X](https://x.com/pr4j3sh) (formerly Twitter) and by that time I also discovered [Hashnode](https://hashnode.com/), but the idea of building a platform on my own was always at the back of my mind.
 
 ##### Early Adventures
 
@@ -43,7 +43,7 @@ So, there you go. That's how I built **blogs**.
 Interested? Create one yourself today, using [frames](https://pr4j3sh.github.io/frames/),
 
 ```bash
-npm create @pr4j3sh/frames temp-blog myblog
+npm create @pr4j3sh/frames@latest temp-blog myblog
 ```
 
 Push it onto [github](https://github.com/) and deploy on [vercel](https://vercel.com/).
