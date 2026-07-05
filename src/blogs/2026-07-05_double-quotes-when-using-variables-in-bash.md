@@ -4,7 +4,7 @@ Earlier I was experimenting with bash scripting, revising it again from [w3schoo
 
 It was operators section and I was reading through different operators and their purposes. Earlier I saw an example of assosiative arrays(yea, the one's like dictionary) so I thought of creating associative arrays of these different types of operators and printing them on my shell.
 
-The code I wrote was [this](https://github.com/pr4j3sh/lang/blob/48517f47545cc07241ab64e115bddd830ffe041c/src/bash/operators/main.sh) (also, given below).
+I wrote [this](https://github.com/pr4j3sh/lang/blob/48517f47545cc07241ab64e115bddd830ffe041c/src/bash/operators/main.sh) code (also, given below).
 
 ```bash
 #!/bin/bash
@@ -49,7 +49,7 @@ for i in ${arithmetic_operators[@]}; do
 done
 ```
 
-And, when I executed this code, I was getting this response.
+On executing, I was getting this response.
 
 ```bash
 comparison operators
@@ -79,7 +79,7 @@ Why are all the files/directories being listed right after the `arithmetic_opera
 
 > Can you spot the bug?
 
-Well, the problem was me not using double quotes around the variables in the for loop, [these](https://github.com/pr4j3sh/lang/blob/48517f47545cc07241ab64e115bddd830ffe041c/src/bash/operators/main.sh#L38-L39) lines and hence globbing occurs with path expansion.
+Well, the problem was I did not use double quotes around the variable names in the for loop, [these](https://github.com/pr4j3sh/lang/blob/48517f47545cc07241ab64e115bddd830ffe041c/src/bash/operators/main.sh#L38-L39) lines and hence globbing occured with path expansion.
 
 ```bash
 for i in ${arithmetic_operators[@]}; do
@@ -88,9 +88,7 @@ for i in ${arithmetic_operators[@]}; do
 
 When the array element was `*` in the `for` loop, for `arithmetic_operators["multiplication"]='*'`, bash expanded it into all files and directories inside the current working directory and hence printed all the file/directory names.
 
-Only if I used, double quotes, this bug would never have occured.
-
-So, all I had to do was [add double quotes](https://github.com/pr4j3sh/lang/commit/ab688d4aca38e4015302c0fdce1ec2bf386c40de#diff-55b12e459eee70981ffbbace830106e4828d947a44c7462c845eae0bbf7b0cfcL38-R39).
+On using [double quotes](https://github.com/pr4j3sh/lang/commit/ab688d4aca38e4015302c0fdce1ec2bf386c40de#diff-55b12e459eee70981ffbbace830106e4828d947a44c7462c845eae0bbf7b0cfcL38-R39) the issue was resolved.
 
 ```bash
 - for i in ${arithmetic_operators[@]}; do
@@ -99,6 +97,6 @@ So, all I had to do was [add double quotes](https://github.com/pr4j3sh/lang/comm
 +  echo "$i"
 ```
 
-> Fun fact: My linter was telling me to use double quotes around variable usage
+> Fun fact: My IDE linter was telling me to use double quotes around variable names
 
-Now, you know how important it is to use double quotes around variable names in bash to avoind globbing or word splitting.
+Now, you know how important it is to use double quotes around variable names in bash to avoid globbing or word splitting.
